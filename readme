@@ -12,21 +12,18 @@ FitAPI is a RESTful API built using Node.js, Express, and MongoDB, following the
 
 
 ## Dependencies
-The following dependencies are used in this project:
 
 ### Core Dependencies:
-- [express] - Web framework for Node.js
-- [mongoose] - MongoDB ODM
-- [mongodb]- MongoDB driver (alternative to Mongoose)
-- [dotenv] - Loads environment variables
-- [express-validator]- Middleware for validating request data
+- **express** - Web framework for Node.js.
+- **mongoose** - MongoDB ODM.
+- **mongodb** - MongoDB driver (alternative to Mongoose).
+- **dotenv** - Loads environment variables.
+- **express-validator** - Middleware for validating request data.
 
 ### Development Dependencies:
-- [nodemon] - Automatically restarts the server on file changes
-- [swagger-ui-express] - Generates Swagger UI for API documentation
-- [swagger-autogen] - Auto-generates Swagger documentation
-
-
+- **nodemon** - Automatically restarts the server on file changes.
+- **swagger-ui-express** - Serves Swagger UI for API documentation.
+- **swagger-autogen** - Auto-generates Swagger documentation.
 
 ## Running the API
 To start the API in development mode:
