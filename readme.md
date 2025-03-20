@@ -16,7 +16,6 @@ FitAPI is a RESTful API built using Node.js, Express, and MongoDB, following the
 ### Core Dependencies:
 - **express** - Web framework for Node.js.
 - **mongoose** - MongoDB ODM.
-- **mongodb** - MongoDB driver (alternative to Mongoose).
 - **dotenv** - Loads environment variables.
 - **express-validator** - Middleware for validating request data.
 
