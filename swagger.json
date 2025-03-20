@@ -5,7 +5,7 @@
     "description": "FITAPI api documentation",
     "version": "1.0.0"
   },
-  "host": "localhost:8080",
+  "host": "fitapi-ifkz.onrender.com",
   "basePath": "/",
   "tags": [
     {
