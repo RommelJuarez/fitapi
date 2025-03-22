@@ -4,7 +4,7 @@ const middleware=require('../middlewares/userValidators');
 
 routes.get('/',users.getAllUsers);
 routes.get('/:id',middleware.validarIds,users.getOneUser);
-routes.post('/',middleware.validarUpdateUser,users.createUser);
+routes.post('/',middleware.validarCreateUser,users.createUser);
 routes.put('/:id',middleware.validarIds,middleware.validarUpdateUser,users.updateUser);
 routes.delete('/:id',middleware.validarIds,users.deleteUser);
 

@@ -7,7 +7,7 @@ const getAllUsers=async(req,res)=>{
         res.status(200).json(users);
     } catch (error) {
         console.error('Error loading data from database: ',error);
-        res.status(500).json({error:'Error loading data from database'});
+        res.status(500).json({error:'Error loading data from database',message:error.errmsg });
     }
 };
 
@@ -21,7 +21,7 @@ const getOneUser=async(req,res)=>{
         res.status(200).json(user);
     } catch (error) {
         console.error("Error loading one user from database:", error);
-        res.status(500).json({ error: "Error loading one user from database" });
+        res.status(500).json({ error: "Error loading one user from database",message:error.errmsg  });
     }
 };
 
@@ -38,7 +38,7 @@ const createUser=async(req,res)=>{
 
     } catch (error) {
         console.error("Error creating one user from database:", error);
-        res.status(500).json({ error: "Error creating one user from database" });
+        res.status(500).json({ error: "Error creating one user from database",message:error.errmsg });
     }
 };
 
@@ -61,7 +61,7 @@ const createUser=async(req,res)=>{
             res.status(200).json({message:'user updated successfully'});
         } catch (error) {
             console.error("Error updating one user from database:", error);
-            res.status(500).json({ error: "Error updating one user from database" });
+            res.status(500).json({ error: "Error updating one user from database",message:error.errmsg  });
         }
 
     };
@@ -78,7 +78,7 @@ const deleteUser = async (req, res) => {
         res.status(200).json({ message: " User deleted successfully" });
     } catch (error) {
         console.error("Error deleting user:", error);
-        res.status(500).json({ error: "Error deleting user" });
+        res.status(500).json({ error: "Error deleting user",message:error.errmsg  });
     }
 };
 const addExerciseToRoutine = async (req, res) => {
@@ -105,7 +105,7 @@ const addExerciseToRoutine = async (req, res) => {
         res.status(200).json({ message: "Exercise added successfully", user: updatedUser });
     } catch (error) {
         console.error("Error adding exercise:", error);
-        res.status(500).json({ error: "Error adding exercise" });
+        res.status(500).json({ error: "Error adding exercise",message:error.errmsg  });
     }
 };
 const updateExerciseInRoutine = async (req, res) => {
@@ -133,7 +133,7 @@ const updateExerciseInRoutine = async (req, res) => {
         res.status(200).json({ message: "Exercise updated successfully", user: updatedUser });
     } catch (error) {
         console.error("Error updating exercise:", error);
-        res.status(500).json({ error: "Error updating exercise" });
+        res.status(500).json({ error: "Error updating exercise",message:error.errmsg  });
     }
 };
 const removeExerciseFromRoutine = async (req, res) => {
@@ -160,7 +160,7 @@ const removeExerciseFromRoutine = async (req, res) => {
         res.status(200).json({ message: "Exercise removed successfully", user: updatedUser });
     } catch (error) {
         console.error("Error removing exercise:", error);
-        res.status(500).json({ error: "Error removing exercise" });
+        res.status(500).json({ error: "Error removing exercise",message:error.errmsg  });
     }
 };
 

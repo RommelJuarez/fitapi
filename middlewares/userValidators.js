@@ -54,7 +54,29 @@ const validarUpdateUser = [
     body('firstName').optional().notEmpty().withMessage('firstName cannot be empty'),
     body('lastName').optional().notEmpty().withMessage('lastName cannot be empty'),
     body('email').optional().isEmail().withMessage('Invalid email format'),
+    
     (req, res, next) => {
+        if (Object.keys(req.body).length === 0) {
+            return res.status(400).json({ errors: [{ msg: 'The body is empty' }] });
+        }
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            return res.status(400).json({ errors: errors.array() });
+        }
+        next();
+    }
+];
+const validarCreateUser = [
+    
+    body('userName').notEmpty().withMessage('userName cannot be empty'),
+    body('firstName').notEmpty().withMessage('firstName cannot be empty'),
+    body('lastName').notEmpty().withMessage('lastName cannot be empty'),
+    body('email').isEmail().withMessage('Invalid email format'),
+    body().notEmpty().withMessage('The body is empty'),
+    (req, res, next) => {
+        if (Object.keys(req.body).length === 0) {
+            return res.status(400).json({ errors: [{ msg: 'The body is empty' }] });
+        }
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
             return res.status(400).json({ errors: errors.array() });
@@ -69,6 +91,6 @@ module.exports = {
     validarUpdateExercise,
     validarDayId,
     validarExerciseId,
-
+    validarCreateUser,
 
  };

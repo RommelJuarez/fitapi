@@ -62,9 +62,9 @@ const updateExercise=async(req,res)=>{
 
 const deleteExercise=async(req,res)=>{
     try {
-        const exerciseId=req.body.id;
-        const deleteExercise= await exercisesModel.findByIdAndDelete(exerciseId);
-        if(!deleteExercise){
+        const exerciseId=req.params.id;
+        const deleteExercises= await exercisesModel.findByIdAndDelete(exerciseId);
+        if(!deleteExercises){
             return res.status(404).json({message:'Exercise not found'});
         }
         res.status(200).json({message:'Exercise deleted successfully'});
