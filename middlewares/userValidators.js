@@ -3,8 +3,26 @@ const validDays = ["monday", "tuesday", "wednesday", "thursday", "friday", "satu
 
 
 const validarIds = [
-    param('userId').isMongoId().withMessage('Invalid userId format'),
+    param('id').isMongoId().withMessage('Invalid userId format'),
+    (req, res, next) => {
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            return res.status(400).json({ errors: errors.array() });
+        }
+        next();
+    }
+];
+const validarExerciseId = [
     param('exerciseId').optional().isMongoId().withMessage('Invalid exerciseId format'),
+    (req, res, next) => {
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            return res.status(400).json({ errors: errors.array() });
+        }
+        next();
+    }
+];
+const validarDayId = [
     param('day').isIn(validDays).withMessage('Invalid day of the week'),
     (req, res, next) => {
         const errors = validationResult(req);
@@ -49,6 +67,8 @@ module.exports = {
     validarIds,
     validarUpdateUser,
     validarUpdateExercise,
+    validarDayId,
+    validarExerciseId,
 
 
  };
