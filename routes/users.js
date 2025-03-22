@@ -8,9 +8,9 @@ routes.post('/',middleware.validarUpdateUser,users.createUser);
 routes.put('/:id',middleware.validarIds,middleware.validarUpdateUser,users.updateUser);
 routes.delete('/:id',middleware.validarIds,users.deleteUser);
 
-routes.post('/:userId/routine/:day/:exerciseId',middleware.validarIds,middleware.validarDayId,middleware.validarExerciseId,users.addExerciseToRoutine);
-routes.put('/:userId/routine/:day',middleware.validarUpdateExercise,users.updateExerciseInRoutine);
-routes.delete('/:userId/routine/:day/:exerciseId',middleware.validarIds,middleware.validarDayId,middleware.validarExerciseId,users.removeExerciseFromRoutine);
+routes.post('/:id/routine/:day/:exerciseId',middleware.validarIds,middleware.validarDayId,middleware.validarExerciseId,users.addExerciseToRoutine);
+routes.put('/:id/routine/:day',middleware.validarUpdateExercise,users.updateExerciseInRoutine);
+routes.delete('/:id/routine/:day/:exerciseId',middleware.validarIds,middleware.validarDayId,middleware.validarExerciseId,users.removeExerciseFromRoutine);
 
 
 module.exports=routes;
